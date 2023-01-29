@@ -1,15 +1,10 @@
-INSERT Product(name, price, made, [valid up to], manufacturer)
-VALUES
-('огурец', 13.35, 14, 30, 'хатка'),
-('помидор', 15.90, 14, 30, 'хатка'),
-('буряк', 15, 14, 30, 'хатка'),
-('капуска', 18.40, 14, 30, 'хатка'),
-('яблоки', 5.15, 14, 30, 'хатка'),
-('апельсин', 7.40, 14, 30, 'хатка'),
-('лимон', 12.99, 14, 30, 'хатка'),
-('мандарин', 6.80, 14, 30, 'хатка'),
-('перец', 13.90, 14, 30, 'хатка'),
-('сладкий перец', 15.35, 14, 30, 'хатка');
-
-ALTER TABLE [Product] DROP COLUMN ID 
-ALTER TABLE [Product] ADD ID INT IDENTITY(1,1)
+CREATE TABLE Products
+(
+ID int NOT NULL IDENTITY,
+Name nvarchar(100) NULL,
+Price float NULL,
+Made date NULL DEFAULT GETDATE(),
+[valid up to] date NULL DEFAULT GETDATE() + 30,
+Manufacturer nvarchar(100) NULL
+)
+GO
