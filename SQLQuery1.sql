@@ -99,3 +99,28 @@ SELECT * FROM Products
 SELECT ID, Name, Price, Count, Made, [valid up to], Manufacturer  From Products
 WHERE Name = 'Ê*'
 GO
+
+SELECT ID, Name, Price, Count, Made, [valid up to], Manufacturer  From Products
+WHERE Price < 50
+GO
+
+SELECT ID, Name, Price, Count, Made, [valid up to], Manufacturer  From Products
+WHERE Price >= 100
+AND Price <= 200
+GO
+
+UPDATE [Products]
+SET Price = Price-(Price/100*5)
+GO
+
+UPDATE [Products]
+SET Made = GETDATE() WHERE Made = 0
+GO
+
+DELETE [Products]
+WHERE Price > 70 AND Count < 100
+GO
+
+DELETE [Products]
+WHERE Manufacturer = 0
+Go
